@@ -21,8 +21,17 @@ LOCAL_PATH := device/droidlogic/t982_ar301
 # A/B
 AB_OTA_PARTITIONS += \
     boot \
+    dtbo \
     system \
-    vendor
+    system_ext \
+    vendor \
+    vendor_boot \
+    vbmeta \
+    vbmeta_system \
+    oem \
+    odm \
+    odm_ext \
+    product
 
 AB_OTA_POSTINSTALL_CONFIG += \
     RUN_POSTINSTALL_system=true \
