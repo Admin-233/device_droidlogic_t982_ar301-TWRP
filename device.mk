@@ -18,6 +18,10 @@
 
 LOCAL_PATH := device/droidlogic/t982_ar301
 
+# Screen
+TARGET_SCREEN_HEIGHT := 1920
+TARGET_SCREEN_WIDTH := 1080
+
 # A/B
 AB_OTA_PARTITIONS += \
     boot \
@@ -43,6 +47,11 @@ AB_OTA_POSTINSTALL_CONFIG += \
 PRODUCT_PACKAGES += \
     android.hardware.boot@1.0-impl \
     android.hardware.boot@1.0-service
+    
+# Fastbootd
+PRODUCT_PACKAGES += \
+    android.hardware.fastboot@1.0-impl-mock \
+    fastbootd
 
 PRODUCT_PACKAGES += \
     bootctrl.sc2

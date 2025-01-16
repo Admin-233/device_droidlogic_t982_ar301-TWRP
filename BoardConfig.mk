@@ -63,6 +63,7 @@ TARGET_BOARD_PLATFORM := sc2
 
 # Recovery
 TARGET_RECOVERY_PIXEL_FORMAT := BGRA_8888
+TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery/root/recovery.fstab
 BOARD_USES_RECOVERY_AS_BOOT := true
 
 # Hack: prevent anti rollback
