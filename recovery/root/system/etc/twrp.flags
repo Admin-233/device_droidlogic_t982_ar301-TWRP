@@ -5,3 +5,7 @@
 /vbmeta             emmc      /dev/block/vbmeta                                                     flags=display="Vbmeta";slotselect;
 /vbmeta_system      emmc      /dev/block/vbmeta_system                                              flags=display="Vbmeta_system";slotselect;
 /boot               emmc      /dev/block/boot                                                       flags=display="Boot";backup=1;flashimg=1;slotselect;
+
+# /dev/block/cache cannot be used on this device, big hole!
+# /cache should be mount to /data/cached, but cannot mount after spending all my effort, waiting for someone to fix.
+/cache              auto      /data/cache                                                           flags=display="Cache";

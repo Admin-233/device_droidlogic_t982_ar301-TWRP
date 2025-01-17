@@ -4,7 +4,7 @@
 
 #<src>                                                 <mnt_point>                        <type>  <mnt_flags and options>                              <fs_mgr_flags>
 
-system                                                  /system                           ext4    barrier=1                                         wait,slotselect,avb=vbmeta,logical,first_stage_mount,avb_keys=/avb,backup=1,flashimg=1
+system                                                  /system                           ext4    ro,barrier=1                                         wait,slotselect,avb=vbmeta,logical,first_stage_mount,avb_keys=/avb,backup=1,flashimg=1
 system_ext                                              /system_ext                       ext4    ro,barrier=1                                         wait,slotselect,avb,logical,first_stage_mount
 vendor                                                  /vendor                           ext4    ro,barrier=1                                         wait,slotselect,avb,logical,first_stage_mount
 product                                                 /product                          ext4    ro,barrier=1                                         wait,slotselect,avb,logical,first_stage_mount
@@ -12,10 +12,11 @@ odm                                                     /odm                    
 /dev/block/by-name/oem                                  /oem                              ext4    ro,barrier=1                                         wait,slotselect,avb,first_stage_mount
 /dev/block/by-name/metadata                             /metadata                         ext4    noatime,nosuid,nodev,nodelalloc,nomblk_io_submit,errors=panic    wait,check,formattable,first_stage_mount
 /dev/block/userdata                                     /data                             ext4    noatime,nosuid,nodev,nodelalloc,nomblk_io_submit,errors=panic    latemount,wait,check,quota,formattable
+/dev/block/platform/soc/fe08c000.mmc/by-name/misc       /misc                             emmc    defaults                                                         defaults
 
 # /dev/block/cache cannot be used on this device, big hole!
-/data/cache                                             /cache                            none    bind
-/dev/block/platform/soc/fe08c000.mmc/by-name/misc       /misc               emmc      defaults    defaults
+# /cache should be mount to /data/cached, but cannot mount after spending all my effort, waiting for someone to fix.
+#/data/cache                                             /cache                            auto    noatime,nosuid,nodev,nodelalloc,nomblk_io_submit,errors=panic,bind    wait,check
 
 # not necessary, ignoring.
 #/dev/block/by-name/odm_ext                              /mnt/vendor/odm_ext               ext4    ro,noatime,nosuid,nodev,nodelalloc,nomblk_io_submit,errors=panic    wait,check,slotselect,first_stage_mount
