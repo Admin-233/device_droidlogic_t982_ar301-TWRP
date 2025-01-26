@@ -8,4 +8,4 @@
 
 # /dev/block/cache cannot be used on this device, big hole!
 # /cache should be mount to /data/cached, but cannot mount after spending all my effort, waiting for someone to fix.
-/cache              auto      /data/cache                                                           flags=display="Cache";
+#/cache              auto      /data/cache                                                           flags=display="Cache";
